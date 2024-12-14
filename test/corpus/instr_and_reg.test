@@ -1,0 +1,170 @@
+==========
+Instruction -- No args
+==========
+halt
+---
+(program
+    (instruction 
+        (instructionLiteral)))
+
+==========
+Instruction -- One reg arg
+==========
+pushq %rbx
+---
+(program
+    (instruction 
+        (instructionLiteral)
+        (register)
+    )
+)
+
+==========
+Instruction -- Two reg args
+==========
+addq %rcx, %rax
+---
+(program
+    (instruction 
+        (instructionLiteral)
+        (operand 
+            (register)
+        )
+        (operand
+            (register)
+        )
+    )
+)
+
+==========
+Instruction -- Memory reference offset arg, reg arg
+==========
+mrmovq	-1(%rbp), %rax
+---
+(program
+    (instruction
+        (instructionLiteral)
+        (operand
+            (memoryReference
+                (num)
+                (register)
+            )
+        )
+        (operand
+            (register)
+        )
+    )
+)
+
+==========
+Instruction -- Memory reference offset (hex) arg, reg arg
+==========
+mrmovq	0xaf(%rbp), %rax
+---
+(program
+    (instruction
+        (instructionLiteral)
+        (operand
+            (memoryReference
+                (num)
+                (register)
+            )
+        )
+        (operand
+            (register)
+        )
+    )
+)
+
+==========
+Instruction -- Memory reference no offset arg, reg arg
+==========
+mrmovq	(%rsp), %r8
+---
+(program
+    (instruction
+        (instructionLiteral)
+        (operand
+            (memoryReference
+                (register)
+            )
+        )
+        (operand
+            (register)
+        )
+    )
+)
+
+==========
+Instruction -- Reg arg, memory reference
+==========
+rmmovq	%rax, (%rsp)
+---
+(program
+    (instruction
+        (instructionLiteral)
+        (operand
+            (register)
+        )
+        (operand
+            (memoryReference
+                (register)
+            )
+        )
+    )
+)
+
+==========
+Instruction -- Immediate arg, reg arg
+==========
+irmovq	$10, %r9
+---
+(program
+    (instruction
+        (instructionLiteral)
+        (operand
+            (immediate
+                (num)
+            )
+        )
+        (operand
+            (register)
+        )
+    )
+)
+
+==========
+Instruction -- Immediate arg (no $, hex), reg arg 
+==========
+irmovq	0x10, %r10
+---
+(program
+    (instruction
+        (instructionLiteral)
+        (operand
+            (immediate
+                (num)
+            )
+        )
+        (operand
+            (register)
+        )
+    )
+)
+
+==========
+Instruction -- Label arg, reg arg
+==========
+irmovq	array, %rax
+---
+(program
+    (instruction
+        (instructionLiteral)
+        (operand
+            (labelLiteral)
+        )
+        (operand
+            (register)
+        )
+    )
+)

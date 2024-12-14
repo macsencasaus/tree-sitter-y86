@@ -1,0 +1,81 @@
+==========
+Basic label 
+==========
+main:
+---
+(program
+    (label 
+        (labelLiteral)
+    )
+)
+
+==========
+Local label 
+==========
+.label:
+---
+(program
+    (label 
+        (labelLiteral)
+    )
+)
+
+==========
+Directive -- pos
+==========
+.pos 0x0
+---
+(program
+    (directive
+        (directiveLiteral)
+        (num)
+    )
+)
+
+==========
+Directive -- byte
+==========
+.byte 0xff
+---
+(program
+    (directive
+        (directiveLiteral)
+        (num)
+    )
+)
+
+==========
+Directive -- word
+==========
+.word 0xffff
+---
+(program
+    (directive
+        (directiveLiteral)
+        (num)
+    )
+)
+
+==========
+Directive -- long
+==========
+.long 0x0
+---
+(program
+    (directive
+        (directiveLiteral)
+        (num)
+    )
+)
+
+==========
+Directive -- quad
+==========
+.quad 0x0
+---
+(program
+    (directive
+        (directiveLiteral)
+        (num)
+    )
+)

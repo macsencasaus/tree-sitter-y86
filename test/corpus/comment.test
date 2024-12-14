@@ -1,0 +1,45 @@
+==========
+Comment
+==========
+# This is a comment 
+---
+(program
+    (comment))
+
+==========
+Inline comment with instr no args
+==========
+ret # This is an in-line comment
+---
+(program
+    (instruction 
+        (instructionLiteral)
+    )
+    (comment)
+)
+
+==========
+Inline comment with instr one reg arg, no space between
+==========
+pushq %rbp# This is an in-line comment 
+---
+(program
+    (instruction 
+        (instructionLiteral) 
+        (register)
+    )
+    (comment)
+)
+    
+==========
+Inline comment with instr one reg arg, space between
+==========
+pushq %rbp # This is an in-line comment 
+---
+(program
+    (instruction 
+        (instructionLiteral) 
+        (register)
+    )
+    (comment)
+)
